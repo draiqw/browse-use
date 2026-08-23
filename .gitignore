@@ -11,3 +11,8 @@ rates*.json
 # резервная копия: полный клон и колёса держим локально, в git они не нужны
 backup/browser-use-git/
 backup/wheels/
+
+# генерируемое харнессом
+runs/
+.cache/
+fixtures/*.html
