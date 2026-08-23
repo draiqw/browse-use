@@ -1,6 +1,7 @@
 """Командная строка харнесса.
 
     python -m harness doctor                  проверить допущения об апстриме
+    python -m harness selftest                проверить сам харнесс, без LLM и без денег
     python -m harness models                  какие провайдеры готовы к работе
     python -m harness tasks                   список задач и профилей
     python -m harness run -t cbr -m openai:gpt-5-mini -r 3
@@ -28,6 +29,16 @@ def cmd_doctor(args) -> int:
     if bad:
         print(f"\nСломано допущений: {bad}. Смотри harness/upstream.py — там написано, "
               f"на что именно мы опирались и что чинить.")
+    return 1 if bad else 0
+
+
+def cmd_selftest(args) -> int:
+    from harness.selftest import run_all
+
+    bad = 0
+    for c in run_all():
+        print(("  OK    " if c.ok else "  СЛОМ  ") + f"{c.name:22} {c.detail}")
+        bad += not c.ok
     return 1 if bad else 0
 
 
@@ -95,6 +106,7 @@ def main(argv=None) -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("doctor", help="проверить допущения об апстриме").set_defaults(fn=cmd_doctor)
+    sub.add_parser("selftest", help="проверки без LLM и без денег").set_defaults(fn=cmd_selftest)
     sub.add_parser("models", help="доступные провайдеры").set_defaults(fn=cmd_models)
     sub.add_parser("tasks", help="задачи и профили").set_defaults(fn=cmd_tasks)
 
