@@ -86,7 +86,9 @@ def cmd_run(args) -> int:
     print(f"Матрица: {len(cells)} пар × {args.repeats} повтор(ов) = {len(cells) * args.repeats} прогонов\n")
 
     def show(r, i, total):
-        print(rep_mod.line(r) + (f"   [повтор {i}/{total}]" if total > 1 else ""))
+        # flush обязателен: при перенаправлении в файл вывод буферизуется блоками,
+        # и в фоновом прогоне результаты не видно до самого конца
+        print(rep_mod.line(r) + (f"   [повтор {i}/{total}]" if total > 1 else ""), flush=True)
 
     reports = asyncio.run(run_matrix(mx, on_result=show))
 
