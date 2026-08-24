@@ -1,0 +1,17 @@
+{
+  "name": "cfcomputer-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8788",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cloudflare/computer": "0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.125.0"
+  }
+}

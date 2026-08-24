@@ -15,3 +15,20 @@ requirements.lock.txt     точные версии 103 пакетов (uv pip f
   - исходники тега 0.13.8 совпадают с установленным пакетом; расходятся только README/tests/manifest,
     которых нет в колесе
   - офлайн-установка из wheels/ в чистое venv прошла, browser-use 0.13.8 импортируется
+
+---
+
+Резервная копия @cloudflare/computer, снята 2026-08-24 с https://github.com/cloudflare/computer
+
+cloudflare-computer-git/  полный клон, 813 коммитов, 19 тегов (в git не коммитится, 16 МБ)
+                          HEAD на момент снятия: de87919a4fd37242e960e13b7b3ba802d1eef0a0 (2026-08-21)
+npm/cloudflare-computer-0.2.1.tgz
+                          опубликованный пакет — именно он стоит в cfcomputer/node_modules (в git, 2,4 МБ)
+                          sha256 d6d814b95992c2462543ab0d0ba99f4e6fbcecf9f7134c3f502b2b1a08ed6d19
+npm.sha256                контрольная сумма пакета
+cfcomputer/package-lock.json
+                          точные версии всех 121 пакета воркера
+
+Восстановление: cd cfcomputer && npm install ../backup/npm/cloudflare-computer-0.2.1.tgz
+Остальные зависимости (wrangler, typescript) тянутся из npm по package-lock.json; офлайн-зеркала
+на них нет — в отличие от питоньей части, где в backup/wheels лежит всё окружение целиком.

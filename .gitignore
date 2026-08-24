@@ -16,3 +16,9 @@ backup/wheels/
 runs/
 .cache/
 fixtures/*.html
+
+# cfcomputer
+cfcomputer/node_modules/
+cfcomputer/.wrangler/
+backup/cloudflare-computer-git/
+cfcomputer/worker-configuration.d.ts
