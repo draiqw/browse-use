@@ -1,0 +1,14 @@
+browseruse-lab (архив)
+Copyright (c) 2026 Roman Akramov (https://github.com/draiqw)
+
+Собственный код репозитория — под MIT, см. LICENSE.
+
+Стороннее в составе репозитория, под своими лицензиями:
+
+  backup/browser-use-0.13.8/   browser-use, (c) 2024 Gregor Zunic, MIT.
+                               Текст лицензии — backup/browser-use-0.13.8/LICENSE.
+  cfcomputer/                  зависит от @cloudflare/computer, (c) Cloudflare;
+                               сам пакет здесь не распространяется.
+
+Репозиторий заархивирован. Работа продолжается в browser-agent и computer-agent,
+см. README.
